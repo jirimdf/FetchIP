@@ -1,5 +1,7 @@
 # FetchIP
 
+[![Tests](https://github.com/jirimdf/FetchIP/actions/workflows/tests.yml/badge.svg)](https://github.com/jirimdf/FetchIP/actions/workflows/tests.yml)
+
 A Python command-line tool that finds your public IP address and shows geolocation information about it. You can enter any IP address manually or let the tool detect your own.
 
 ## Features
@@ -60,6 +62,15 @@ Organization: AS15169 Google LLC
 Postal code: 94043
 Timezone: America/Los_Angeles
 ```
+
+## Tests
+
+```bash
+pip install pytest
+python -m pytest
+```
+
+The tests mock the ipinfo.io API, so they need no network access. Tests run automatically on every push via GitHub Actions.
 
 ## Notes
 
