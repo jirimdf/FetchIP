@@ -4,16 +4,16 @@ A Python command-line tool that finds your public IP address and shows geolocati
 
 ## Features
 
-- Automatic detection of your public IP address (scraped from [myip.dk](https://www.myip.dk))
+- Automatic detection of your public IP address
 - Manual IP address input
 - Geolocation lookup via the [ipinfo.io](https://ipinfo.io) API
-- Error handling for network and parsing errors
+- Error handling for network errors
 
 ## Tech stack
 
 - Python 3
 - Requests
-- Beautiful Soup 4
+- [ipinfo.io](https://ipinfo.io) API
 
 ## Installation
 
@@ -44,9 +44,26 @@ The tool then prints the following information:
 - Postal code
 - Timezone
 
+### Example output
+
+```
+Choose an option:
+1. Enter IP address manually
+2. Automatic IP address detection
+Your choice: 1
+Enter the IP address: 8.8.8.8
+City: Mountain View
+Region: California
+Country: US
+Location: 38.0088,-122.1175
+Organization: AS15169 Google LLC
+Postal code: 94043
+Timezone: America/Los_Angeles
+```
+
 ## Notes
 
-- Automatic detection depends on the HTML structure of myip.dk, so it may stop working if the website changes. Manual input uses only the ipinfo.io API.
+- Both automatic detection and the lookup use the free ipinfo.io API, which has a rate limit for requests without an API token.
 
 ## License
 

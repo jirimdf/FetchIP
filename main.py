@@ -1,15 +1,10 @@
 import requests
-from bs4 import BeautifulSoup
 
 
 def get_public_ip():
-    response = requests.get("https://myip.dk/")
-    web = response.text
-    soup = BeautifulSoup(web, "html.parser")
-    public_ip_h1 = soup.find("h1", class_="MuiTypography-root MuiTypography-h5 css-zq6grw")
-    if public_ip_h1:
-        ip_text = public_ip_h1.text.strip()
-        ip_address = ":".join(ip_text.split(":")[1:]).strip()
+    response = requests.get("https://ipinfo.io/json", timeout=10)
+    ip_address = response.json().get("ip")
+    if ip_address:
         print(f"Your public IP: {ip_address}")
         return ip_address
     else:
