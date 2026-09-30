@@ -1,43 +1,53 @@
-# Public IP and Geographical Data Fetcher
+# FetchIP
 
-This script fetches the user's public IP address and related geographical data. It provides options for manual IP entry or automatic detection. Data retrieval is facilitated through web scraping and API queries.
+A Python command-line tool that finds your public IP address and shows geolocation information about it. You can enter any IP address manually or let the tool detect your own.
 
 ## Features
 
-- Fetches public IP address and geographical information.
-- Options for manual IP entry or automatic detection.
-- Utilizes web scraping and API queries for data retrieval.
-- Error handling for graceful execution.
+- Automatic detection of your public IP address (scraped from [myip.dk](https://www.myip.dk))
+- Manual IP address input
+- Geolocation lookup via the [ipinfo.io](https://ipinfo.io) API
+- Error handling for network and parsing errors
+
+## Tech stack
+
+- Python 3
+- Requests
+- Beautiful Soup 4
+
+## Installation
+
+```bash
+git clone https://github.com/jirimdf/FetchIP.git
+cd FetchIP
+pip install -r requirements.txt
+```
 
 ## Usage
 
-1. Clone the repository:
+```bash
+python main.py
+```
 
-    ```bash
-    git clone https://github.com/LupusJM/FetchIP.git
-    ```
+Choose an option in the menu:
 
-2. Navigate to the project directory:
+1. Enter an IP address manually
+2. Detect your public IP address automatically
 
-    ```bash
-    cd FetchIP
-    ```
+The tool then prints the following information:
 
-3. Run the script:
+- City
+- Region
+- Country
+- Location (latitude, longitude)
+- Organization (ISP)
+- Postal code
+- Timezone
 
-    ```bash
-    python main.py
-    ```
+## Notes
 
-4. Follow the prompts to input or detect the IP address.
-5. View the fetched geographical information.
-
-## Requirements
-
-- Python
-- Requests library
-- BeautifulSoup library
+- Automatic detection depends on the HTML structure of myip.dk, so it may stop working if the website changes. Manual input uses only the ipinfo.io API.
 
 ## License
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/lupusjm/FetchIP/blob/main/LICENSE)
+This project is licensed under the [MIT License](LICENSE).
